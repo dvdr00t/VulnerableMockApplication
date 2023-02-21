@@ -57,7 +57,7 @@ class PublicUserResourceIT {
         // Get all the users
         UserDTO foundUser = webTestClient
             .get()
-            .uri("/api/users?sort=id,desc")
+            .uri("/api/users?sort=id,DESC")
             .accept(MediaType.APPLICATION_JSON)
             .exchange()
             .expectStatus()
@@ -98,25 +98,25 @@ class PublicUserResourceIT {
 
         webTestClient
             .get()
-            .uri("/api/users?sort=resetKey,desc")
+            .uri("/api/users?sort=resetKey,DESC")
             .accept(MediaType.APPLICATION_JSON)
             .exchange()
             .expectStatus()
             .isBadRequest();
         webTestClient
             .get()
-            .uri("/api/users?sort=password,desc")
+            .uri("/api/users?sort=password,DESC")
             .accept(MediaType.APPLICATION_JSON)
             .exchange()
             .expectStatus()
             .isBadRequest();
         webTestClient
             .get()
-            .uri("/api/users?sort=resetKey,desc&sort=id,desc")
+            .uri("/api/users?sort=resetKey,id,DESC")
             .accept(MediaType.APPLICATION_JSON)
             .exchange()
             .expectStatus()
             .isBadRequest();
-        webTestClient.get().uri("/api/users?sort=id,desc").accept(MediaType.APPLICATION_JSON).exchange().expectStatus().isOk();
+        webTestClient.get().uri("/api/users?sort=id,DESC").accept(MediaType.APPLICATION_JSON).exchange().expectStatus().isOk();
     }
 }

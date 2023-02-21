@@ -271,7 +271,7 @@ class UserResourceIT {
         // Get all the users
         AdminUserDTO foundUser = webTestClient
             .get()
-            .uri("/api/admin/users?sort=id,desc")
+            .uri("/api/admin/users?sort=id,DESC")
             .accept(MediaType.APPLICATION_JSON)
             .exchange()
             .expectStatus()
